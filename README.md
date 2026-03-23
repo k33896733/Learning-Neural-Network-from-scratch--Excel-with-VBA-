@@ -2,7 +2,7 @@
 
 **Not good!**. Financial time series are highly noisy and non-stationary. This implementation is **not** intended to deliver profitable trading signals and does **not** achieve competitive predictive accuracy compared to state-of-the-art models (e.g., LSTMs or industrial-scale networks).  
 
-Left : the loss function ; Right : this is the actual price change (in orange) and the prediction (in black)
+Image 1 : the loss function ; Image 2 : this is the actual price change (in orange) and the prediction (in black)
 <img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/bbfccd92-9a95-4652-80ae-0c878ff468c8" />
 <img width="500" height="200" alt="prediction2" src="https://github.com/user-attachments/assets/17364d62-7225-41f2-8d12-7943362addd2" />
 

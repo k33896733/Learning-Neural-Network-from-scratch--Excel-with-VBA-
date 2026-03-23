@@ -1,3 +1,19 @@
+## Performance
+
+Not very good, but I think it does learn.
+Financial time series are highly noisy and non-stationary. This implementation is **not** intended to deliver profitable trading signals and does **not** achieve competitive predictive accuracy compared to state-of-the-art models (e.g., LSTMs or industrial-scale networks).  
+
+Left : the loss function ; Right : this is the actual price change (in orange) and the prediction (in black)
+<img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/bbfccd92-9a95-4652-80ae-0c878ff468c8" />
+<img width="500" height="200" alt="prediction2" src="https://github.com/user-attachments/assets/17364d62-7225-41f2-8d12-7943362addd2" />
+
+**How to prove whether the model is learning?**
+
+A key validation test is that when **one of the input features is set to the target closing price itself**, the model rapidly learns to reproduce that value exactly — demonstrating that **the forward and backward propagation logic functions correctly**.
+
+<img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/8630de3f-a14d-4521-b235-9cb5706b0610" />
+<img width="500" height="200" alt="prediction" src="https://github.com/user-attachments/assets/b68b7cac-23fc-439b-92df-c84435a9aec8" />
+
 ## Background of the project
 
 This project originated from my interest in understanding the inner workings of neural network (NN) without relying on high-level frameworks like TensorFlow or PyTorch. I chose VBA within Excel for the following reasons:
@@ -13,22 +29,6 @@ The model is trained on historical stock data to predict the day closing price (
 - Training: Mini-batch gradient descent with L2 weight decay and batch normalization
 
 **Note**: Indeed, I have tried different combination , but the performances are not good, so I just randomly pick one for illustration purpose
-
-**Performance**
-
-Not very good, but I think it does learn.
-Financial time series are highly noisy and non-stationary. This implementation is **not** intended to deliver profitable trading signals and does **not** achieve competitive predictive accuracy compared to state-of-the-art models (e.g., LSTMs or industrial-scale networks).  
-
-Left : the loss function ; Right : this is the actual price change (in orange) and the prediction (in black)
-<img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/bbfccd92-9a95-4652-80ae-0c878ff468c8" />
-<img width="500" height="200" alt="prediction2" src="https://github.com/user-attachments/assets/17364d62-7225-41f2-8d12-7943362addd2" />
-
-**How to prove whether the model is learning?**
-
-A key validation test is that when **one of the input features is set to the target closing price itself**, the model rapidly learns to reproduce that value exactly — demonstrating that **the forward and backward propagation logic functions correctly**.
-
-<img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/8630de3f-a14d-4521-b235-9cb5706b0610" />
-<img width="500" height="200" alt="prediction" src="https://github.com/user-attachments/assets/b68b7cac-23fc-439b-92df-c84435a9aec8" />
 
 ## Neural Network
 

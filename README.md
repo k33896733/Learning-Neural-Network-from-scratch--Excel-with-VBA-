@@ -6,7 +6,7 @@ This project originated from my interest in understanding the inner workings of 
 -  **Neuron-level visibility** — Each cell in sheet "Forward" and "Backward" can directly represent an individual neuron or intermediate value, offering unparalleled educational clarity.
 
 **The Model**
-The model is trained on historical stock data (OHLCV and derived features) to predict the day closing price (change : close - open) (single-value regression).  
+The model is trained on historical stock data to predict the day closing price (change : close - open) (single-value regression).  
 - Input: 10 features  (From HSI index)
 - Output: 1 value  
 - Hidden layers: 3 layers with Leaky ReLU activation (configurable slope α)  
@@ -15,13 +15,15 @@ The model is trained on historical stock data (OHLCV and derived features) to pr
 
 **Performance**
 
+Not very good, but I think it does learn.
 Financial time series are highly noisy and non-stationary. This implementation is **not** intended to deliver profitable trading signals and does **not** achieve competitive predictive accuracy compared to state-of-the-art models (e.g., LSTMs or industrial-scale networks).  
 
+Left : the loss function ; Right : this is the actual price change (in orange) and the prediction (in black)
 <img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/bbfccd92-9a95-4652-80ae-0c878ff468c8" />
 <img width="500" height="200" alt="prediction2" src="https://github.com/user-attachments/assets/17364d62-7225-41f2-8d12-7943362addd2" />
 
-**How to know if the model is correct?**
-The primary goal is educational: to verify correct implementation of core neural network mechanics.  
+**How to prove whether the model is learning?**
+
 A key validation test is that when **one of the input features is set to the target closing price itself**, the model rapidly learns to reproduce that value exactly — demonstrating that **the forward and backward propagation logic functions correctly**.
 
 <img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/8630de3f-a14d-4521-b235-9cb5706b0610" />

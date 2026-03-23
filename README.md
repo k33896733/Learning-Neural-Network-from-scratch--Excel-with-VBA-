@@ -47,21 +47,21 @@ To enable learning, the network minimizes a loss function that quantifies the di
    - Enable macros when opening the file (File → Options → Trust Center → Macro Settings).
 
 2. **Workbook Sheet Overview**  
-- **Data Raw** — Contains original and preprocessed historical stock data.
-- **Panel** — Prepares the 10 input features for each training example; includes the "Auto-learn" button to start training.
-- **Forward** — Visualizes node activations and computes forward propagation; adjustable parameters include Learning Rate and Leaky ReLU α.
-- **Backward** — Visualizes intermediate computations and performs backward propagation.
-- **Analysis** — (Template) Displays training progress, loss history, predictions vs. actual values, and evaluation metrics.
-- **Epoch(X)** — Dynamically created sheets recording loss and metrics for each training run.
-**Note**: All core calculations occur in the **Forward** and **Backward** sheets via cell formulas. VBA primarily handles data copying, loop control, and sheet management.
+   - **Data Raw** — Contains original and preprocessed historical stock data.
+   - **Panel** — Prepares the 10 input features for each training example; includes the "Auto-learn" button to start training.
+   - **Forward** — Visualizes node activations and computes forward propagation; adjustable parameters include Learning Rate and Leaky ReLU α.
+   - **Backward** — Visualizes intermediate computations and performs backward propagation.
+   - **Analysis** — (Template) Displays training progress, loss history, predictions vs. actual values, and evaluation metrics.
+   - **Epoch(X)** — Dynamically created sheets recording loss and metrics for each training run.
+   - **Note**: All core calculations occur in the **Forward** and **Backward** sheets via cell formulas. VBA primarily handles data copying, loop control, and sheet management.
 
 3. **Basic Workflow**
-1. Load and preprocess stock data in **Data Raw**.
-2. In **Panel**, click **Update Data Set** to copy data to input nodes (or manually adjust inputs; unused nodes may be left blank).
-3. Adjust hyperparameters in **Panel** and **Forward** sheets.
-4. Click **Auto-learn** in **Panel** to start training.
-5. Monitor progress in newly created **Epoch(X)** sheets and **Analysis**.
-6. To restart: Click **Reset Model** in **Panel** and delete existing **Epoch(X)** sheets.
+   - Load and preprocess stock data in **Data Raw**.
+   - In **Panel**, click **Update Data Set** to copy data to input nodes (or manually adjust inputs; unused nodes may be left blank).
+   - Adjust hyperparameters in **Panel** and **Forward** sheets.
+   - Click **Auto-learn** in **Panel** to start training.
+   - Monitor progress in newly created **Epoch(X)** sheets and **Analysis**.
+   - To restart: Click **Reset Model** in **Panel** and delete existing **Epoch(X)** sheets.
 
 ### Changing Input Data
 - Input features are flexible: leave cells blank if fewer than 10 are needed.

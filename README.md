@@ -1,6 +1,6 @@
 ## Performance
 
-Not very good, but I think it does learn.
+**Not good!**, but I think the model does learn.
 Financial time series are highly noisy and non-stationary. This implementation is **not** intended to deliver profitable trading signals and does **not** achieve competitive predictive accuracy compared to state-of-the-art models (e.g., LSTMs or industrial-scale networks).  
 
 Left : the loss function ; Right : this is the actual price change (in orange) and the prediction (in black)

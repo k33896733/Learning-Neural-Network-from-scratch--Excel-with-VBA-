@@ -6,22 +6,32 @@ This project originated from my interest in understanding the inner workings of 
 -  **Neuron-level visibility** — Each cell in sheet "Forward" and "Backward" can directly represent an individual neuron or intermediate value, offering unparalleled educational clarity.
 
 **The Model**
-The model is trained on historical stock data (OHLCV and derived features) to predict the next day's closing price (single-value regression).  
-- Input: 10 features  
+The model is trained on historical stock data (OHLCV and derived features) to predict the day closing price (change : close - open) (single-value regression).  
+- Input: 10 features  (From HSI index)
 - Output: 1 value  
 - Hidden layers: 3 layers with Leaky ReLU activation (configurable slope α)  
 - Training: Mini-batch gradient descent with L2 weight decay and batch normalization
 **Note**: Indeed, I have tried different combination , but the performances are not good, so I just randomly pick one for illustration purpose
 
 **Performance**
+
 Financial time series are highly noisy and non-stationary. This implementation is **not** intended to deliver profitable trading signals and does **not** achieve competitive predictive accuracy compared to state-of-the-art models (e.g., LSTMs or industrial-scale networks).  
 
+<img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/bbfccd92-9a95-4652-80ae-0c878ff468c8" />
+<img width="500" height="200" alt="prediction2" src="https://github.com/user-attachments/assets/17364d62-7225-41f2-8d12-7943362addd2" />
+
+**How to know if the model is correct?**
 The primary goal is educational: to verify correct implementation of core neural network mechanics.  
 A key validation test is that when **one of the input features is set to the target closing price itself**, the model rapidly learns to reproduce that value exactly — demonstrating that **the forward and backward propagation logic functions correctly**.
+
+<img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/8630de3f-a14d-4521-b235-9cb5706b0610" />
+<img width="500" height="200" alt="prediction" src="https://github.com/user-attachments/assets/b68b7cac-23fc-439b-92df-c84435a9aec8" />
 
 ## Neural Network
 
 Neural networks are computational models inspired by biological neural systems. They learn to map inputs to desired outputs by iteratively adjusting internal parameters (weights and biases) through training.
+
+<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/c52af275-b87a-4c68-a998-6c426edfe3c5" />
 
 ### Basic Unit — Neuron
 
@@ -36,9 +46,13 @@ The fundamental building block of a neural network is the **neuron** (also calle
 
 Forward propagation (or forward pass) is the process of computing the network's output given an input. Starting from the input layer, each subsequent layer computes its activations using the weights, biases, and activation functions from the previous layer's outputs. This continues until the output layer produces the final prediction.
 
+<img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/98a719e4-b9ed-4bd9-8ce5-b3786e37161a" />
+
 ### Backward Propagation (Backpropagation)
 
 To enable learning, the network minimizes a loss function that quantifies the difference between predicted and actual outputs (e.g., Mean Squared Error for regression). Backpropagation computes the gradients of the loss with respect to all weights and biases using the chain rule of calculus. These gradients indicate how each parameter should be adjusted to reduce the loss.
+
+<img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/10073ce2-6d85-418f-8f82-d446675d526e" />
 
 ## How to Use This Excel Workbook
 
